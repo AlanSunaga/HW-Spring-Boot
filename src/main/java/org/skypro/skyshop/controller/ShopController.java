@@ -2,7 +2,6 @@ package org.skypro.skyshop.controller;
 
 import org.skypro.skyshop.SearchResult;
 import org.skypro.skyshop.model.article.Article;
-import org.skypro.skyshop.model.basket.UserBasket;
 import org.skypro.skyshop.model.product.Product;
 import org.skypro.skyshop.service.BasketService;
 import org.skypro.skyshop.service.SearchService;
