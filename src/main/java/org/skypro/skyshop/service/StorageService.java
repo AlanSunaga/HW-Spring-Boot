@@ -29,16 +29,30 @@ public class StorageService {
         return allProducts;
     }
 
-    private void addProduct() {
-        allProducts.put(UUID.randomUUID(), new SimpleProduct("Хлеб", 50));
-        allProducts.put(UUID.randomUUID(), new DiscountedProduct("Молоко", 80, 50));
-        allProducts.put(UUID.randomUUID(), new SimpleProduct("Сыр", 300));
-        allProducts.put(UUID.randomUUID(), new FixPriceProduct("Чипсы"));
-        allProducts.put(UUID.randomUUID(), new DiscountedProduct("Пепси", 50, 20));
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(allProducts.get(id));
+    }
 
-        articleMap.put(UUID.randomUUID(), new Article("1", "1"));
-        articleMap.put(UUID.randomUUID(), new Article("2", "2"));
-        articleMap.put(UUID.randomUUID(), new Article("3", "3"));
+    private void addProduct() {
+        Product product1 = new SimpleProduct("Хлеб", 50, UUID.fromString("4f0a5747-710a-4ae1-839c-a740a54060aa"));
+        Product product2 = new DiscountedProduct("Молоко", 80, 50, UUID.randomUUID());
+        Product product3 = new SimpleProduct("Сыр", 300, UUID.randomUUID());
+        Product product4 = new FixPriceProduct("Чипсы", UUID.randomUUID());
+        Product product5 = new DiscountedProduct("Пепси", 50, 20, UUID.randomUUID());
+
+        allProducts.put(product1.getId(), product1);
+        allProducts.put(product2.getId(), product2);
+        allProducts.put(product3.getId(), product3);
+        allProducts.put(product4.getId(), product4);
+        allProducts.put(product5.getId(), product5);
+
+        Article article1 = new Article("1", "1", UUID.randomUUID());
+        Article article2 = new Article("2", "2", UUID.randomUUID());
+        Article article3 = new Article("3", "3", UUID.randomUUID());
+
+        articleMap.put(article1.getId(), article1);
+        articleMap.put(article2.getId(), article2);
+        articleMap.put(article3.getId(), article3);
     }
 
     public List<Searchable> getAllSearchables() {

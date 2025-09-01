@@ -4,12 +4,11 @@ import java.util.UUID;
 
 public class SimpleProduct extends Product {
     int priceProduct;
-    private final UUID id;
 
-    public SimpleProduct(String nameProduct, int priceProduct) {
 
-        super(nameProduct);
-        this.id = UUID.randomUUID();
+    public SimpleProduct(String nameProduct, int priceProduct,UUID id) {
+
+        super(nameProduct,id);
         if (priceProduct < 0) {
             throw new IllegalArgumentException();
         }
@@ -29,9 +28,5 @@ public class SimpleProduct extends Product {
     @Override
     public String toString() {
         return getNameProduct() + " : " + priceProduct;
-    }
-    @Override
-    public UUID getId() {
-        return id;
     }
 }

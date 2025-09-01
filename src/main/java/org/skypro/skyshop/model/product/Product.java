@@ -11,13 +11,13 @@ public abstract class Product implements Searchable {
     private final UUID id;
 
 
-    public Product(String nameProduct) {
+    public Product(String nameProduct,UUID id) {
 
         if (nameProduct == null || nameProduct.equals("")) {
             throw new IllegalArgumentException("Имя null или строка пустая");
         }
         this.nameProduct = nameProduct;
-        this.id = UUID.randomUUID();
+        this.id = id;
     }
 
     @Override

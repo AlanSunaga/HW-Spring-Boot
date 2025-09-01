@@ -5,11 +5,9 @@ import java.util.UUID;
 public class DiscountedProduct extends Product {
     int basePrice;
     int discount;
-    private final UUID id;
 
-    public DiscountedProduct(String nameProduct, int basePrice, int discount) {
-        super(nameProduct);
-        this.id = UUID.randomUUID();
+    public DiscountedProduct(String nameProduct, int basePrice, int discount, UUID id) {
+        super(nameProduct, id);
         if (basePrice < 0) {
             throw new IllegalArgumentException("Сумма базовой цены должна быть больше нуля");
         }
@@ -32,8 +30,4 @@ public class DiscountedProduct extends Product {
                 + getNameProduct() + " со скидкой: " + getPriceProduct() + ", скидка: " + discount + " %";
     }
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
 }

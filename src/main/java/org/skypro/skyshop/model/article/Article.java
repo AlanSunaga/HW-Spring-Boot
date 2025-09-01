@@ -11,10 +11,10 @@ public final class Article implements Searchable {
     private final String textTitleArticle;
     private final UUID id;
 
-    public Article(String nameTitleArticle, String textTitleArticle) {
+    public Article(String nameTitleArticle, String textTitleArticle,UUID id) {
         this.nameTitleArticle = nameTitleArticle;
         this.textTitleArticle = textTitleArticle;
-        this.id = UUID.randomUUID();
+        this.id = id;
     }
 
     public String getNameTitleArticle() {
