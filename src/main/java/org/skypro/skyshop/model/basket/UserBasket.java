@@ -10,6 +10,7 @@ public class UserBasket {
         this.basketItemList = basketItemList;
 
     }
+
     private double calculateTotal() {
         return basketItemList.stream()
                 .mapToDouble(BasketItem::getTotalPrice)
