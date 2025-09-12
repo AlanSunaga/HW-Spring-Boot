@@ -20,4 +20,9 @@ public class UserBasket {
     public List<BasketItem> getBasketItemList() {
         return basketItemList;
     }
+
+    public boolean isEmpty() {
+        return basketItemList.isEmpty();
+    }
+
 }
