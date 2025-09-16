@@ -21,8 +21,5 @@ public class UserBasket {
         return basketItemList;
     }
 
-    public boolean isEmpty() {
-        return basketItemList.isEmpty();
-    }
 
 }

@@ -1,8 +1,10 @@
 package org.skypro.skyshop.service;
 
 import org.skypro.skyshop.SearchResult;
+import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,10 +17,14 @@ public class SearchService {
     }
 
     public List<SearchResult> search(String term) {
-        return storageService.getAllSearchables().stream()
-                .filter(s -> s.getSearchTerm().toLowerCase().contains(term.toLowerCase()))
-                .map(SearchResult::fromSearchable)
-                .collect(Collectors.toList());
+        List<SearchResult> list = new ArrayList<>();
+        for (Searchable s : storageService.getAllSearchables()) {
+            if (s.getSearchTerm().toLowerCase().contains(term.toLowerCase())) {
+                SearchResult searchResult = SearchResult.fromSearchable(s);
+                list.add(searchResult);
+            }
+        }
+        return list;
     }
 
 }

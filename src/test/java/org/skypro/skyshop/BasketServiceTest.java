@@ -34,14 +34,14 @@ public class BasketServiceTest {
 
     @Test
     void addProductToCart_whenProductNotExists_shouldThrowException() {
-
+        // Подготовка
         when(storageService.getProductById(nonExistingProductId))
                 .thenReturn(Optional.empty());
-
+        // Действие
         assertThrows(NoSuchProductException.class, () -> {
             basketService.addProduct(nonExistingProductId);
         });
-
+        // Проверка
         verify(productBasket, never()).addProduct(any(UUID.class));
         verify(storageService, times(1)).getProductById(nonExistingProductId);
     }
@@ -62,14 +62,13 @@ public class BasketServiceTest {
 
     @Test
     void getUserBasket_whenProductBasketEmpty_shouldReturnEmptyUserBasket() {
-        // Arrange
+        // Подготовка
         when(productBasket.getBasketMap()).thenReturn(Collections.emptyMap());
 
-        // Act
+        // Действие
         UserBasket result = basketService.getUserBasket();
 
-        // Assert
-        assertTrue(result.isEmpty());
+        // Проверка
         assertTrue(result.getBasketItemList().isEmpty());
         verify(productBasket, times(1)).getBasketMap();
 
