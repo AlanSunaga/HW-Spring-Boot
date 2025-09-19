@@ -54,8 +54,5 @@ public class ShopController {
     public UserBasket getUserBasket() {
         return basketService.getUserBasket();
     }
-    @GetMapping("/allProducts")
-    public List<Searchable> allProducts() {
-        return storageService.getAllSearchables();
-    }
+
 }

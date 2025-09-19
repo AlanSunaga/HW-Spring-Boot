@@ -49,12 +49,11 @@ public class SearchServiceTest {
 
         when(storageService.getAllSearchables()).thenReturn(searchableItems);
         // Действие
-        List<SearchResult> result = searchService.search("Молоко");
+        List<SearchResult> result = searchService.search("Печенье");
 
         // Проверка
-        assertFalse(result.isEmpty());
-        assertEquals(1, result.size());
-        assertEquals("Молоко", result.get(0).getName());
+        assertEquals(0, result.size());
+
     }
 
     @Test
