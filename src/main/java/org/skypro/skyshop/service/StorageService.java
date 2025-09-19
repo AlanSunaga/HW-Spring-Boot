@@ -15,10 +15,10 @@ public class StorageService {
     private final Map<UUID, Product> allProducts;
     private final Map<UUID, Article> articleMap;
 
-    public StorageService(Map<UUID, Product> allProducts, Map<UUID, Article> articleMap) {
+    public StorageService() {
         this.allProducts = new HashMap<>();
         this.articleMap = new HashMap<>();
-        addProduct();
+        this.addProduct();
     }
 
     public Map<UUID, Article> getArticleMap() {
@@ -56,9 +56,9 @@ public class StorageService {
     }
 
     public List<Searchable> getAllSearchables() {
-        List<Searchable> allSearchablesProducts = new ArrayList<>();
-        allSearchablesProducts.addAll(allProducts.values());
-        allSearchablesProducts.addAll(articleMap.values());
-        return allSearchablesProducts;
+        List<Searchable> allProducts = new ArrayList<>();
+        allProducts.addAll(this.allProducts.values());
+        allProducts.addAll(this.articleMap.values());
+        return allProducts;
     }
 }
